@@ -20,3 +20,6 @@ file(GLOB source_files "${source_dir}/*.cpp" )
 
 # add the executable by providing the name of the executable
 add_executable(HelloProgram ${source_files})
+
+# the cmake can be run for this CMakeLists.txt by using the command below
+#cmake <PathToCMakeLists.txt> -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
