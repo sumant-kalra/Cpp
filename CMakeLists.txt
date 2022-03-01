@@ -1,3 +1,12 @@
+# 3 primary steps, 6 in total
+# 1. Minimum version
+# 2. Project name
+# -  Set compiler flags [CXXFLAGS environment variable]
+# -  Set source directory
+# -  Set source files from the source directory
+# 3. Executable file created by compiling the source files
+
+
 # set the minimum cmake version requirement
 cmake_minimum_required(VERSION 3.5)
 # set the name of the project
