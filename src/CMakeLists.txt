@@ -1,2 +1,5 @@
-add_executable(HelloWorld 
-                Main.cpp)
+add_executable(RunProgram
+    Main.cpp
+    Timer.h
+    Timer.cpp)
+set_target_properties(RunProgram PROPERTIES COMPILE_FLAGS "-save-temps")
