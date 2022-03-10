@@ -38,8 +38,8 @@ int main(int argc, char* argv[])
     std::cout<<"1000 shared pointers allocation using 'new' keyword\n";
     {
         timer::Timer t;
-        for (int i = 0;i<arraySharedPtrsNew.size();++i)
-            arraySharedPtrsNew[i] = std::shared_ptr<Entity>(new Entity());
+        for(auto& ptr:arraySharedPtrsNew)
+            ptr = std::shared_ptr<Entity>(new Entity());
     }
 
 
@@ -49,8 +49,8 @@ int main(int argc, char* argv[])
     std::cout<<"1000 shared pointers allocation using 'make_shared'\n";
     {
         timer::Timer t;
-        for(int i =0;i<arraySharedPtrsMakeShared.size();++i) 
-            arraySharedPtrsMakeShared[i] = std::make_shared<Entity>();
+        for(auto& ptr : arraySharedPtrsMakeShared) 
+            ptr = std::make_shared<Entity>();
     }
 
 
@@ -60,8 +60,8 @@ int main(int argc, char* argv[])
     std::cout<<"1000 unique pointers allocation using 'new' keyword\n";
     {
         timer::Timer t;
-        for(int i=0;i<arrayUniquePtrsNew.size();++i)
-            arrayUniquePtrsNew[i] = std::unique_ptr<Entity>(new Entity());
+        for(auto& ptr : arrayUniquePtrsNew)
+            ptr = std::unique_ptr<Entity>(new Entity());
     }
 
     // Array of 1000 unique pointers - using make_unique keyword
@@ -70,28 +70,10 @@ int main(int argc, char* argv[])
     std::cout<<"1000 unique pointers allocation using 'make_unique'\n";
     {
         timer::Timer t;
-        for(int i =0;i<arrayUniquePtrsMakeUnique.size();++i)
-            arrayUniquePtrsMakeUnique[i] = std::make_unique<Entity>();
+        for(auto& ptr : arrayUniquePtrsMakeUnique)
+            ptr = std::make_unique<Entity>();
     }
 
-
-#if 0
-    // Array of 100 shared pointers - using make_shared
-    std::array<std::shared_ptr<Entity>,100> arraySharedPtrMakeShared;
-    for(auto& sharedPtr: arraySharedPtrMakeShared)
-    {
-        sharedPtr = std::make_shared<Entity>();
-    }
-
-    // Array of 100 unique pointers
-    std::array<std::unique_ptr<Entity>,100> arrayUniquePtr;
-    for(auto& uniquePtr: arrayUniquePtr)
-    {
-        uniquePtr = new Entity;
-    }
-
-
-#endif
 #if 0
     // The code below will throw an exception if not run in debug mode
     DEBUG_BREAK;
