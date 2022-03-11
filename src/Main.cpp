@@ -12,15 +12,16 @@
 #include <memory>
 
 #include "Timer.h"
+#include "Entity.h"
 
-struct Entity
-{
-    float num1;
-    float num2;
-};
 
 int main(int argc, char* argv[])
 {
+    {
+        entity::UniquePtr_Entity ptrEn (new entity::Entity());
+    }
+
+
 #if 0
     std::cout<<"Sum of integers:\n";
     int sum = 0;
@@ -33,45 +34,45 @@ int main(int argc, char* argv[])
 #endif 
 
     // Array of 1000 shared pointers - using new keyword
-    std::array<std::shared_ptr<Entity>,1000> arraySharedPtrsNew;
+    std::array<std::shared_ptr<entity::Entity>,1000> arraySharedPtrsNew;
 
     std::cout<<"1000 shared pointers allocation using 'new' keyword\n";
     {
         timer::Timer t;
         for(auto& ptr:arraySharedPtrsNew)
-            ptr = std::shared_ptr<Entity>(new Entity());
+            ptr = std::shared_ptr<entity::Entity>(new entity::Entity());
     }
 
 
     // Array of 1000 shared pointers - using make_shared
-    std::array<std::shared_ptr<Entity>,1000> arraySharedPtrsMakeShared;
+    std::array<std::shared_ptr<entity::Entity>,1000> arraySharedPtrsMakeShared;
 
     std::cout<<"1000 shared pointers allocation using 'make_shared'\n";
     {
         timer::Timer t;
         for(auto& ptr : arraySharedPtrsMakeShared) 
-            ptr = std::make_shared<Entity>();
+            ptr = std::make_shared<entity::Entity>();
     }
 
 
     // Array of 1000 unique pointers - using new keyword
-    std::array<std::unique_ptr<Entity>,1000> arrayUniquePtrsNew;
+    std::array<std::unique_ptr<entity::Entity>,1000> arrayUniquePtrsNew;
     
     std::cout<<"1000 unique pointers allocation using 'new' keyword\n";
     {
         timer::Timer t;
         for(auto& ptr : arrayUniquePtrsNew)
-            ptr = std::unique_ptr<Entity>(new Entity());
+            ptr = std::unique_ptr<entity::Entity>(new entity::Entity());
     }
 
     // Array of 1000 unique pointers - using make_unique keyword
-    std::array<std::unique_ptr<Entity>,1000> arrayUniquePtrsMakeUnique;
+    std::array<std::unique_ptr<entity::Entity>,1000> arrayUniquePtrsMakeUnique;
 
     std::cout<<"1000 unique pointers allocation using 'make_unique'\n";
     {
         timer::Timer t;
         for(auto& ptr : arrayUniquePtrsMakeUnique)
-            ptr = std::make_unique<Entity>();
+            ptr = std::make_unique<entity::Entity>();
     }
 
 #if 0
