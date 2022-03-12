@@ -3,7 +3,7 @@ project(BitwiseOperations)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++14")
 
-add_executable(ExeProgram
+add_executable(runProgram
                 src/Main.cpp
                 src/Entity.h
                 src/Entity.cpp
