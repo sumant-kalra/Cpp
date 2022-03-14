@@ -10,4 +10,5 @@ add_executable(runProgram
                 src/Entity.h
                 src/Entity.cpp
                 src/Timer.h
-                src/Timer.cpp)
+                src/Timer.cpp
+                src/Utilities.h)

@@ -1,25 +1,11 @@
 #include <iostream>
-// MACROS - Logging system based on the configuration
-
-#if PR_RELEASE == 1
-#define LOG(x)
-#else
-#define LOG(x) std::cout << x << "\n";
-#endif
-
-#if 0
-#define MAIN    \
-    int main()  \
-    {           \
-        LOG(4); \
-    }
-
-MAIN
-#endif
+#include "Utilities.h"
 
 int main(int argc, char *argv[])
 {
-    LOG(4);
+    LOG("This message should appear if the PR_RELEASE is set to anything but 1.");
+    char *ptr = NEW(4);
 
+    delete ptr;
     return 0;
 }
