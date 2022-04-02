@@ -15,7 +15,10 @@ add_compile_definitions(PR_RELEASE=1)
 #       B. add_executable(TARGET LIST_OF_SRC_H_CPP_FILES)
 #       C. target_link_library(TARGET PUBLIC LIB_NAME)
 #       D. target_include_directory(TARGET PUBLIC LIB_PATH_FROM_PROJECT_SOURCE_DIR)
-#
+
+# In case the library is a header only library, then all we have to do is add the include directory
+#       A. add_executable(TARGET LIST_OF_SRC_H_CPP_FILES)
+#       B. target_include_directory(TARGET PUBLIC LIB_PATH_FROM_PROJECT_SOURCE_DIR)
 
 
 add_subdirectory(ExternalLibs/timer)
@@ -24,7 +27,6 @@ add_executable(runProgram
                 src/Main.cpp
                 src/Entity.h
                 src/Entity.cpp
-                src/Utilities.h
                 src/Unions.h
                 src/Unions.cpp
                 src/Random.h
