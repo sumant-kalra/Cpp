@@ -9,6 +9,7 @@ namespace timer
     {
     private:
         std::chrono::high_resolution_clock::time_point m_startTime;
+
     public:
         Timer();
         ~Timer();
