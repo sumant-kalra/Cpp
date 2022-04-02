@@ -13,4 +13,8 @@ add_executable(runProgram
                 src/Timer.cpp
                 src/Utilities.h
                 src/Unions.h
-                src/Unions.cpp)
+                src/Unions.cpp
+                src/Random.h
+                src/Random.cpp
+                src/Polymorphism.h
+                src/Polymorphism.cpp)
