@@ -21,7 +21,8 @@ add_compile_definitions(PR_RELEASE=1)
 #       B. target_include_directory(TARGET PUBLIC LIB_PATH_FROM_PROJECT_SOURCE_DIR)
 
 
-add_subdirectory(ExternalLibs/timer)
+add_subdirectory(Libraries/timer)
+add_subdirectory(Libraries/random)
 
 add_executable(runProgram
                 src/Main.cpp
@@ -29,11 +30,10 @@ add_executable(runProgram
                 src/Entity.cpp
                 src/Unions.h
                 src/Unions.cpp
-                src/Random.h
-                src/Random.cpp
                 src/Polymorphism.h
                 src/Polymorphism.cpp)
 
 target_link_libraries(runProgram PUBLIC Timer)
+target_link_libraries(runProgram PUBLIC Random)
 
-target_include_directories(runProgram PUBLIC "${PROJECT_SOURCE_DIR}/ExternalLibs")
+target_include_directories(runProgram PUBLIC "${PROJECT_SOURCE_DIR}/Libraries")
