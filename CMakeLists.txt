@@ -31,7 +31,9 @@ add_executable(runProgram
                 src/Unions.h
                 src/Unions.cpp
                 src/Polymorphism.h
-                src/Polymorphism.cpp)
+                src/Polymorphism.cpp
+                src/Templates.h
+                src/templates.cpp)
 
 target_link_libraries(runProgram PUBLIC Timer)
 target_link_libraries(runProgram PUBLIC Random)
