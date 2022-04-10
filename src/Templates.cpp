@@ -1,5 +1,5 @@
 #define MAIN1 0
-#define MAIN2 1
+#define MAIN2 0
 
 // Problem1
 // Write a function that can take std::array object of any size as parameter
