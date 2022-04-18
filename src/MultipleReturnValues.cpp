@@ -112,7 +112,7 @@ returnTypes::string2d *returnTypes::fillStrings8()
 
 // -- MAIN ------------------------------------------------------------------------ //
 
-#define MAIN_1 1
+#define MAIN_1 0
 
 #if MAIN_1
 int main(int argc, char *argv[])
