@@ -1,6 +1,86 @@
-#define TIMER 1
-#if TIMER
+#define TIMER 0
+#define PROBLEM_1 0
+#define PROBLEM_2 1
 
+#if PROBLEM_2
+
+#include <array>
+#include <memory>
+#include <timer/Timer.h>
+#include <iostream>
+#include "Entity.h"
+
+int main(int argc, char *argv[])
+{
+    // Measure the time taken to create a static array of 100 heap allocated objects using -
+    //    - shared_ptr with new, shared_ptr with make_shared , unique_ptr with new and unique_ptr with make_unique
+
+    std::array<std::shared_ptr<entity::Entity>, 100> sharedPtrs_new;
+    std::array<std::unique_ptr<entity::Entity>, 100> uniquePtrs_new;
+
+    // [1] Static array of 100 heap allocated objects using shared_ptr with new
+    std::cout << "# 100 Shared Ptrs with new\n";
+    {
+        timer::Timer t;
+        for (auto &ptr : sharedPtrs_new)
+        {
+            ptr.reset(new entity::Entity());
+        }
+    }
+
+    // [2] Static array of 100 heap allocated objects using shared_ptr with make_shared
+    std::cout << "# 100 Shared Ptrs with make_shared\n";
+    {
+        timer::Timer t;
+        for (auto &ptr : sharedPtrs_new)
+        {
+            ptr = std::make_shared<entity::Entity>();
+        }
+    }
+
+    // [3] Static array of 100 heap allocated objects using unique_ptr with new
+    std::cout << "# 100 Unique Ptrs with new\n";
+    {
+        timer::Timer t;
+        for (auto &ptr : uniquePtrs_new)
+        {
+            ptr.reset(new entity::Entity());
+        }
+    }
+
+    // [4] Static array of 100 heap allocated objects using shared_ptr with make_shared
+    std::cout << "# 100 Unique Ptrs with make_unique\n";
+    {
+        timer::Timer t;
+        for (auto &ptr : uniquePtrs_new)
+        {
+            ptr = std::make_unique<entity::Entity>();
+        }
+    }
+
+    return 0;
+}
+
+#endif
+
+#if PROBLEM_1
+#include "timer/Timer.h"
+
+int main(int argc, char *argv[])
+{
+    unsigned long long int sum = 0;
+    {
+        timer::Timer t;
+        for (int i = 0; i < 100000; ++i)
+            sum += sum;
+    }
+
+    return 0;
+}
+
+#endif
+
+#if TIMER
 #include <chrono>
 #include <iostream>
 #include <timer/Timer.h>
@@ -41,5 +121,4 @@ void run(int n)
     }
     std::cout << "\n";
 }
-
 #endif

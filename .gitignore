@@ -5,6 +5,8 @@ bin-release/
 [Bb]in/
 
 build/
+build-release/
+build-debug/
 
 # Other files and folders
 .settings/
