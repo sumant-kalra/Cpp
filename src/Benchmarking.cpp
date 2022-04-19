@@ -10,49 +10,60 @@
 #include <iostream>
 #include "Entity.h"
 
+/* Important lessons:
+ * 1. [Obviously] Resetting an existing smart pointer object is always faster than creating a new smart pointer object
+ * 2. Using the same static array for allocation using new and make_ , saves you some space but it is not an ideal way
+ *    to make the comparison. It can give the expected result for thw first time run, but with multiple runs, due to some
+ *    junk values in the memory, it can give unexpected results.
+ */
+
 int main(int argc, char *argv[])
 {
     // Measure the time taken to create a static array of 100 heap allocated objects using -
     //    - shared_ptr with new, shared_ptr with make_shared , unique_ptr with new and unique_ptr with make_unique
 
-    std::array<std::shared_ptr<entity::Entity>, 100> sharedPtrs_new;
-    std::array<std::unique_ptr<entity::Entity>, 100> uniquePtrs_new;
+    std::array<std::shared_ptr<entity::Entity>, 1000> sharedPtrs_new;
+    std::array<std::shared_ptr<entity::Entity>, 1000> sharedPtrs_ms;
+    std::array<std::unique_ptr<entity::Entity>, 1000> uniquePtrs_new;
+    std::array<std::unique_ptr<entity::Entity>, 1000> uniquePtrs_mu;
 
     // [1] Static array of 100 heap allocated objects using shared_ptr with new
-    std::cout << "# 100 Shared Ptrs with new\n";
+    std::cout << "# 1000 Shared Ptrs with new\n";
     {
         timer::Timer t;
         for (auto &ptr : sharedPtrs_new)
         {
-            ptr.reset(new entity::Entity());
+            // Resetting an existing smart pointer object is way faster than creating it from scratch
+            // ptr.reset(new entity::Entity());
+            ptr = std::shared_ptr<entity::Entity>(new entity::Entity());
         }
     }
 
     // [2] Static array of 100 heap allocated objects using shared_ptr with make_shared
-    std::cout << "# 100 Shared Ptrs with make_shared\n";
+    std::cout << "# 1000 Shared Ptrs with make_shared\n";
     {
         timer::Timer t;
-        for (auto &ptr : sharedPtrs_new)
+        for (auto &ptr : sharedPtrs_ms)
         {
             ptr = std::make_shared<entity::Entity>();
         }
     }
 
     // [3] Static array of 100 heap allocated objects using unique_ptr with new
-    std::cout << "# 100 Unique Ptrs with new\n";
+    std::cout << "# 1000 Unique Ptrs with new\n";
     {
         timer::Timer t;
         for (auto &ptr : uniquePtrs_new)
         {
-            ptr.reset(new entity::Entity());
+            ptr = std::unique_ptr<entity::Entity>(new entity::Entity());
         }
     }
 
     // [4] Static array of 100 heap allocated objects using shared_ptr with make_shared
-    std::cout << "# 100 Unique Ptrs with make_unique\n";
+    std::cout << "# 1000 Unique Ptrs with make_unique\n";
     {
         timer::Timer t;
-        for (auto &ptr : uniquePtrs_new)
+        for (auto &ptr : uniquePtrs_mu)
         {
             ptr = std::make_unique<entity::Entity>();
         }
