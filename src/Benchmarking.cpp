@@ -1,6 +1,6 @@
 #define TIMER 0
 #define PROBLEM_1 0
-#define PROBLEM_2 1
+#define PROBLEM_2 0
 
 #if PROBLEM_2
 
