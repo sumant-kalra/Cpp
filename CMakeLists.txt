@@ -36,7 +36,8 @@ add_executable(runProgram
                 src/templates.cpp
                 src/MultipleReturnValues.h
                 src/MultipleReturnValues.cpp
-                src/Benchmarking.cpp)
+                src/Benchmarking.cpp
+                src/SocketServer.cpp)
 
 target_link_libraries(runProgram PUBLIC Timer)
 target_link_libraries(runProgram PUBLIC Random)
