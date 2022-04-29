@@ -17,7 +17,7 @@ namespace callback
     // [8] Sort a vector using std::sort in descending order + 'Lambda' as callable
     // [9] Sort a vector using std::sort in descending order + 'Functor' as callable
     // [10] Sort a vector using std::sort in descending order + 'std::function' object as callable
-    // [11] Sort a vector except using std::sort except one element by keeping it at a specific location
+    // [11] Sort a vector except using std::sort except one element by keeping it at the first or the last location
 
 }
 
