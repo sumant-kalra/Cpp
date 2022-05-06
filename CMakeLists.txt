@@ -39,7 +39,9 @@ add_executable(runProgram
                 src/Benchmarking.cpp
                 src/SocketServer.cpp
                 src/Callback.h
-                src/Callback.cpp)
+                src/Callback.cpp
+                src/TypeCasting.h
+                src/TypeCasting.cpp)
 
 target_link_libraries(runProgram PUBLIC Timer)
 target_link_libraries(runProgram PUBLIC Random)
