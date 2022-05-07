@@ -37,12 +37,14 @@ int main(int argc, char *argv[])
     thing4 = thing3; // thing4.operator=(thing3);
     std::cout << thing3.getName() << "\n";
     std::cout << thing4.getName() << "\n";
-#endif
+
 
     type_conversions::isLittleEndian();
     std::cout << type_conversions::convertEndianess1(strtof(argv[1], nullptr)) << "\n";
     std::cout << type_conversions::convertEndianess2(strtof(argv[1], nullptr)) << "\n";
     std::cout << type_conversions::convertEndianess3(strtof(argv[1], nullptr)) << "\n";
+
+#endif
 
     return 0;
 }

@@ -18,7 +18,8 @@
 // and the convert the data's endianess by using (a)Type punning (b)Union (c)reinterpret_cast
 
 // [5]
-// static_cast, dynamic_cast, reinterpret_cast, const_cast applied on a polymorphic class - EntityBase with two children Player and Enemy
+// static_cast, dynamic_cast, reinterpret_cast, const_cast applied on a polymorphic class
+// Entity with two children - Player and Enemy
 
 // [6]
 // Union : Represent the Vec4 as two Vec2 using union
@@ -46,6 +47,47 @@ namespace type_conversions
     float convertEndianess1(const float number);
     float convertEndianess2(const float number);
     float convertEndianess3(const float number);
+
+    // [5]
+    class Entity
+    {
+    protected:
+        float m_x;
+        float m_y;
+        std::string m_name;
+
+    public:
+        Entity(float x, float y, const std::string &name);
+        virtual ~Entity();
+
+        virtual void printName() const = 0;
+
+        float getX() const;
+        float getY() const;
+
+        void setX(float x);
+        void setY(float y);
+    };
+
+    class Player : public Entity
+    {
+    public:
+        Player(float x, float y);
+
+        ~Player();
+
+        void printName() const override;
+    };
+
+    class Enemy : public Entity
+    {
+    public:
+        Enemy(float x, float y);
+
+        ~Enemy();
+
+        void printName() const override;
+    };
 }
 
 #endif
