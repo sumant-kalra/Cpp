@@ -162,6 +162,13 @@ void type_conversions::Player::printName() const
 }
 
 // ----------------------------------------------------------------------------------------------------------------------- //
+int type_conversions::Player::playerId() const
+{
+    std::cout << "This Player belongs to Punjab Police: " << m_PlayerID << "\n";
+    return m_PlayerID;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------- //
 type_conversions::Enemy::Enemy(float x, float y) : type_conversions::Entity(x, y, "Enemy")
 {
     std::cout << "Constructor of Enemy\n";
@@ -177,4 +184,11 @@ type_conversions::Enemy::~Enemy()
 void type_conversions::Enemy::printName() const
 {
     std::cout << m_name << "\n";
+}
+
+// ----------------------------------------------------------------------------------------------------------------------- //
+int type_conversions::Enemy::enemyId() const
+{
+    std::cout << "This Enemy belongs to BJP: " << m_EnemyID << "\n";
+    return m_EnemyID;
 }

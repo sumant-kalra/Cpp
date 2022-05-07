@@ -71,22 +71,32 @@ namespace type_conversions
 
     class Player : public Entity
     {
+    private:
+        int m_PlayerID = 1;
+
     public:
         Player(float x, float y);
 
         ~Player();
 
         void printName() const override;
+
+        int playerId() const;
     };
 
     class Enemy : public Entity
     {
+    private:
+        int m_EnemyID = -1;
+
     public:
         Enemy(float x, float y);
 
         ~Enemy();
 
         void printName() const override;
+
+        int enemyId() const;
     };
 }
 
