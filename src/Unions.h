@@ -46,11 +46,7 @@ namespace vector
 int main(int argc, char *argv[])
 {
     vector::Vector2d vector1{3.0f, 4.0f};
-    vector::Vector4d vector2;
-    vector2.aF = 5.0f;
-    vector2.bF = 6.0f;
-    vector2.cF = 7.0f;
-    vector2.dF = 8.0f;
+    vector::Vector4d vector2{{{5.0f, 6.0f, 7.0f, 8.0f}}};
 
     vector::printVector2d(vector1);
     vector::printVector2d(vector2.aVec2);

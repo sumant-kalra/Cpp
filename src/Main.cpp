@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     ptr3->enemyId();
 
     delete ptr1;
-#endif
+
 
     const type_conversions::Player *ptrPlayer = new type_conversions::Player(3.0f, 5.0f);
 
@@ -70,6 +70,16 @@ int main(int argc, char *argv[])
     ptrPlayer2->printName();
 
     delete ptrPlayer;
+#endif
+
+    type_conversions::Vec4f vec4{{{1.0f, 2.0f, 3.0f, 4.0f}}};
+    std::cout << vec4.x << "\n";
+    std::cout << vec4.y << "\n";
+    std::cout << vec4.w << "\n";
+    std::cout << vec4.v << "\n";
+
+    type_conversions::printVec2f(vec4.vec2_1);
+    type_conversions::printVec2f(vec4.vec2_2);
 
     return 0;
 }

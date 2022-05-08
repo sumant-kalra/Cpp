@@ -192,3 +192,9 @@ int type_conversions::Enemy::enemyId() const
     std::cout << "This Enemy belongs to BJP: " << m_EnemyID << "\n";
     return m_EnemyID;
 }
+
+// ----------------------------------------------------------------------------------------------------------------------- //
+void type_conversions::printVec2f(const Vec2f &vec)
+{
+    std::cout << vec.x << " " << vec.y << "\n";
+}

@@ -98,6 +98,35 @@ namespace type_conversions
 
         int enemyId() const;
     };
+
+    // [6]
+    struct Vec2f
+    {
+        float x;
+        float y;
+    };
+
+    struct Vec4f
+    {
+        union
+        {
+            struct
+            {
+                float x;
+                float y;
+                float w;
+                float v;
+            };
+
+            struct
+            {
+                Vec2f vec2_1;
+                Vec2f vec2_2;
+            };
+        };
+    };
+
+    void printVec2f(const Vec2f &vec);
 }
 
 #endif
