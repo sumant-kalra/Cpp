@@ -25,4 +25,17 @@
     new (std::nothrow) char[x]; \
     std::cout << "[Heap memory allocation] \n File name: " << __FILE__ << "; Line number: " << __LINE__ << "; Bytes allocated: " << x << "\n";
 
+// Assertion
+#if __clang__
+#define ASSERT(x) \
+    if (!(x))     \
+    __builtin_debugtrap()
+#endif
+
+#if _MSC_VER
+#define ASSERT(x) \
+    if (!(x))     \
+    __debugbreak()
+#endif
+
 #endif
