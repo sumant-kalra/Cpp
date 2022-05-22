@@ -22,7 +22,7 @@
 // x is the number of bytes to be allocated
 // new keyword comes from <new> which is also included in <iostream>
 #define NEW(x)                  \
-    new (std::nothrow) char(x); \
+    new (std::nothrow) char[x]; \
     std::cout << "[Heap memory allocation] \n File name: " << __FILE__ << "; Line number: " << __LINE__ << "; Bytes allocated: " << x << "\n";
 
 #endif
