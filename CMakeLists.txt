@@ -42,7 +42,8 @@ add_executable(runProgram
                 src/Callback.cpp
                 src/TypeCasting.h
                 src/TypeCasting.cpp
-                src/VectorOptimized.cpp)
+                src/VectorOptimized.cpp
+                src/Arrow.cpp)
 
 target_link_libraries(runProgram PUBLIC Timer)
 target_link_libraries(runProgram PUBLIC Random)
