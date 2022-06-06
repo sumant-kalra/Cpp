@@ -1,5 +1,5 @@
-#define MAIN 1
-#if MAIN
+#define THIS_MAIN 0
+#if THIS_MAIN
 
 #include <iostream>
 class Entity;
@@ -28,6 +28,7 @@ public:
         printEntity(this);
         printEntity(*this);
     }
+
     void print() const
     {
         std::cout << m_x << "\n";
