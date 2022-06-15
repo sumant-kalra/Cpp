@@ -1,4 +1,4 @@
-#define MOVE_MAIN 1
+#define MOVE_MAIN 0
 #if MOVE_MAIN
 
 // Problem: Implementation of a String class as per Rule of 5 and using its object as a member in Entity class.

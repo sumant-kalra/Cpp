@@ -1,4 +1,4 @@
-#define MAIN 0
+#define MAIN 1
 #if MAIN
 
 #include <iostream>
