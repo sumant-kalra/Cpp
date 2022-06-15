@@ -46,7 +46,8 @@ add_executable(runProgram
                 src/Arrow.cpp
                 src/Constants.cpp
                 src/This.cpp
-                src/Move.cpp)
+                src/Move.cpp
+                src/General.cpp)
 
 target_link_libraries(runProgram PUBLIC Timer)
 target_link_libraries(runProgram PUBLIC Random)
