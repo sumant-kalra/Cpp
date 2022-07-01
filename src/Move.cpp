@@ -31,6 +31,8 @@ public:
 
     String &operator=(const String &string)
     {
+        // Not a proper way of implementation
+        // The size of the string on the left should be greater otherwise it will cause string overflow
         m_size = string.m_size;
         strcpy(m_string, string.m_string);
         printf("String: Copy Assignment\n");
