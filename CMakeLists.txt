@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(CppPractiseProblems)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++14")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++17")
 
 add_compile_definitions(PR_RELEASE=1)
 
@@ -47,7 +47,8 @@ add_executable(runProgram
                 src/Constants.cpp
                 src/This.cpp
                 src/Move.cpp
-                src/General.cpp)
+                src/General.cpp
+                src/StBind-OptData.cpp)
 
 target_link_libraries(runProgram PUBLIC Timer)
 target_link_libraries(runProgram PUBLIC Random)
