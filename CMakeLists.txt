@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(CppPractiseProblems)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++17")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++17")
 
 add_compile_definitions(PR_RELEASE=1)
 
@@ -23,6 +23,7 @@ add_compile_definitions(PR_RELEASE=1)
 
 add_subdirectory(Libraries/timer)
 add_subdirectory(Libraries/random)
+add_subdirectory(Libraries/memoryTrace)
 
 add_executable(runProgram
                 src/Main.cpp
@@ -52,5 +53,6 @@ add_executable(runProgram
 
 target_link_libraries(runProgram PUBLIC Timer)
 target_link_libraries(runProgram PUBLIC Random)
+target_link_libraries(runProgram PUBLIC MemoryTrace)
 
 target_include_directories(runProgram PUBLIC "${PROJECT_SOURCE_DIR}/Libraries")
