@@ -1,8 +1,8 @@
-#define DATA_MINI_SERIES_MAIN 1
-#define READ_FILE 0
+#define DATA_MINI_SERIES_MAIN 0
+#define READ_FILE 1
 #define STD_OPTIONAL 0
 #define STD_VARIANT 0
-#define STD_ANY 1
+#define STD_ANY 0
 
 #if DATA_MINI_SERIES_MAIN
 

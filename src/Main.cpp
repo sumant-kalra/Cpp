@@ -1,4 +1,4 @@
-#define MAIN 0
+#define MAIN 1
 
 // if we want to track the memory allocation in this program then the new and delete operator overload definitions
 // must be provided in the main.cpp. Hence set the flag TRACK_MEMORY accordingly.
