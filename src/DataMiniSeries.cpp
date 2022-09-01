@@ -47,7 +47,9 @@ int main(int argc, char const *argv[])
         if (fileContents)
             std::cout << *fileContents;
         else
-            std::cerr << "Reading from the file failed\n";
+            std::cerr << "Reading from the file has failed\n";
+
+        std::cout << fileContents.value_or("Reading from the file has failed\n");
     }
     catch (const std::invalid_argument &e)
     {
