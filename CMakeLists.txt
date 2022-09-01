@@ -50,7 +50,8 @@ add_executable(runProgram
                 src/This.cpp
                 src/Move.cpp
                 src/General.cpp
-                src/StBind-OptData.cpp)
+                src/StBind-OptData.cpp
+                src/DataMiniSeries.cpp)
 
 target_link_libraries(runProgram PUBLIC Timer)
 target_link_libraries(runProgram PUBLIC Random)
