@@ -2,7 +2,7 @@
 
 // if we want to track the memory allocation in this program then the new and delete operator overload definitions
 // must be provided in the main.cpp. Hence set the flag TRACK_MEMORY accordingly.
-#define TRACK_MEMORY 1
+#define TRACK_MEMORY 0
 
 #if TRACK_MEMORY
 // Definition of new and delete is deliberately kept here to avoid linking with the original new and delete definitions
@@ -35,12 +35,11 @@ void operator delete(void *ptr)
     free((void *)&(ptr1[-1]));
 }
 #endif
+
 #if MAIN
 
 int main(int argc, char const *argv[])
 {
-    int *p = new int[10];
-    metrics::MemoryAllocationMetrics::printMemoryUsage();
 
     return 0;
 }
